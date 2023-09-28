@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
+use App\Models\Profissional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,16 +18,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('store',[ServicoController::class,'store']);
+Route::post('servico/store',[ServicoController::class,'store']);
 
-Route::post('nome',[ServicoController::class, 'pesquisarPorNome']);
+Route::post('servico/nome',[ServicoController::class, 'pesquisarPorNome']);
 
-Route::delete('remover/{id}',[ServicoController::class, 'excluir']);
+Route::delete('servico/remover/{id}',[ServicoController::class, 'excluir']);
 
-Route::post('descricao',[ServicoController::class, 'pesquisarPorDescricao']);
+Route::post('servico/descricao',[ServicoController::class, 'pesquisarPorDescricao']);
 
-Route::put('update',[ServicoController::class, 'update']);
+Route::put('servico/update',[ServicoController::class, 'update']);
 
-Route::get('all', [ServicoController::class, 'retornarTodos']);
+Route::get('servico/all', [ServicoController::class, 'retornarTodos']);
 
-Route::post('store',[ClienteController::class,'store']);
+
+
+
+Route::post('cliente/store',[ClienteController::class,'store']);
+
+Route::post('cliente/nome',[ClienteController::class,'pesquisarPorNome']);
+
+Route::post('cliente/cpf',[ClienteController::class,'pesquisarCpf']);
+
+Route::post('cliente/celular',[ClienteController::class,'pesquisarCelular']);
+
+Route::post('cliente/email',[ClienteController::class,'pesquisarEmail']);
+
+
+
+
+Route::post('profissional/store',[ProfissionalController::class,'store']);

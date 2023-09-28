@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class ClienteFormRequest extends FormRequest
+class ProfissionalFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -19,10 +19,14 @@ class ClienteFormRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
 
-     
+
+    
+
+
+              
     public function rules(): array
     {
         return [
@@ -39,13 +43,14 @@ class ClienteFormRequest extends FormRequest
             'bairro'=> 'required|max:100|',
             'cep'=> 'required|max:8|min:8|',
             'complemento'=>'|max:150|',
-            'senha'=>'required'
+            'senha'=>'required',
+            'salario'=>'required'
         ];
     }
 
     public function failedValidation(Validator $validator){
         throw new HttpResponseException(response()->json([
-           'success'=>false,
+           'success'=>true,
            'error'=>$validator->errors()
         ]));
       }
@@ -95,8 +100,11 @@ class ClienteFormRequest extends FormRequest
 
            'senha.required'=>'o campo senha é obrigatório',
 
+           'salario.required'=>'o campo senha é obrigatório',
+
 
         ];
    }
    
-}
+};
+

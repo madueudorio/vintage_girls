@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Profissional extends Model
 {
+    
     protected $fillable=[
         'nome',
         'celular',
@@ -21,7 +22,8 @@ class Cliente extends Model
         'bairro',
         'cep',
         'complemento',
-        'senha'
-];
+        'senha',
+        'salario'
 
+];
 }
