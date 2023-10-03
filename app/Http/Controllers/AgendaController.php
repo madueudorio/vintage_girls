@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AgendaFormRequest;
-use App\Http\Requests\ProfissionalFormRequest;
 use App\Models\Agenda;
-use App\Models\Profissional;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
