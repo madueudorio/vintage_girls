@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
@@ -47,3 +48,5 @@ Route::post('cliente/email',[ClienteController::class,'pesquisarEmail']);
 
 
 Route::post('profissional/store',[ProfissionalController::class,'store']);
+
+Route::post('Agenda/store',[AgendaController::class,'store']);
