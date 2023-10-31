@@ -44,9 +44,23 @@ Route::post('cliente/celular',[ClienteController::class,'pesquisarCelular']);
 
 Route::post('cliente/email',[ClienteController::class,'pesquisarEmail']);
 
+Route::get('cliente/all',[ClienteController::class, 'retornarTodos']);
+
 
 
 
 Route::post('profissional/store',[ProfissionalController::class,'store']);
 
+Route::post('profissional/nome',[ProfissionalController::class,'pesquisarPorNome']);
+
+Route::post('profissional/cpf',[ProfissionalController::class,'pesquisarCpf']);
+
+Route::post('profissional/celular',[ProfissionalController::class,'pesquisarCelular']);
+
+Route::post('profisional/email',[ProfissionalController::class,'pesquisarEmail']);
+
+Route::get('profissional/all',[ProfissionalController::class, 'retornarTodos']);
+
+
 Route::post('Agenda/store',[AgendaController::class,'store']);
+

@@ -33,7 +33,32 @@ class ProfissionalController extends Controller
                "data" => $profissional
    
            ],200);
-       }
+        }
 
+           public function pesquisarPorNome(Request $request)
+           {
+               $profissional = Profissional::where('nome', 'like', '%' . $request->nome . '%')->get();
+               if (count($profissional) > 0) {
+                   return response()->json([
+                       'status' => true,
+                       'data' => $profissional
+                   ]);
+               }
+               else{
+                   return response()->json([
+                       'status' => false,
+                       'message' => "Nenhum profissional encontrado"
+                   ]);
+               }
+           }
+
+       
+       public function retornarTodos()
+       {
+           $profissional = Profissional::all();
+           return response()->json([
+               'status' => true,
+               'data' => $profissional
+           ]);
 }
-
+}
