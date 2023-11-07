@@ -5,8 +5,10 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
 use App\Models\Profissional;
+use App\Models\Servico;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('servico/store',[ServicoController::class,'store']);
+
+Route::put('servico/update',[ServicoController::class, 'update']);
+
+Route::get('servico/find/{id}',[ServicoController::class,'pesquisarPorId']);
 
 Route::post('servico/nome',[ServicoController::class, 'pesquisarPorNome']);
 
@@ -36,6 +42,10 @@ Route::get('servico/all', [ServicoController::class, 'retornarTodos']);
 
 Route::post('cliente/store',[ClienteController::class,'store']);
 
+Route::put('cliente/update',[ClienteController::class, 'update']);
+
+Route::get('cliente/find/{id}',[ClienteController::class,'pesquisarPorId']);
+
 Route::post('cliente/nome',[ClienteController::class,'pesquisarPorNome']);
 
 Route::post('cliente/cpf',[ClienteController::class,'pesquisarCpf']);
@@ -51,7 +61,11 @@ Route::get('cliente/all',[ClienteController::class, 'retornarTodos']);
 
 Route::post('profissional/store',[ProfissionalController::class,'store']);
 
+Route::get('profissional/find/{id}',[ProfissionalController::class,'pesquisarPorId']);
+
 Route::post('profissional/nome',[ProfissionalController::class,'pesquisarPorNome']);
+
+Route::put('profissional/update',[ProfissionalController::class, 'update']);
 
 Route::post('profissional/cpf',[ProfissionalController::class,'pesquisarCpf']);
 
