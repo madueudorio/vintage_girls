@@ -51,7 +51,24 @@ class ProfissionalController extends Controller
             'data' => $profissional
         ]);
     }
+    public function excluir($id)
+    {
+        $profissional = profissional::find($id);
 
+        if (!isset($profissional)) {
+            return response()->json([
+                'status' => false,
+                'message' => "Serviço não encontrado"
+            ]);
+        }
+
+
+        $profissional->delete();
+        return response()->json([
+            'status' => true,
+            'message' => "Serviço excluído com sucesso"
+        ]);
+    }
 
     public function pesquisarPorNome(Request $request)
     {

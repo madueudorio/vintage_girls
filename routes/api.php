@@ -27,6 +27,8 @@ Route::put('servico/update',[ServicoController::class, 'update']);
 
 Route::get('servico/find/{id}',[ServicoController::class,'pesquisarPorId']);
 
+Route::delete('servico/remover/{id}',[ServicoController::class, 'excluir']);
+
 Route::post('servico/nome',[ServicoController::class, 'pesquisarPorNome']);
 
 Route::delete('servico/remover/{id}',[ServicoController::class, 'excluir']);
@@ -46,6 +48,8 @@ Route::put('cliente/update',[ClienteController::class, 'update']);
 
 Route::get('cliente/find/{id}',[ClienteController::class,'pesquisarPorId']);
 
+Route::delete('cliente/remover/{id}',[ClienteController::class, 'excluir']);
+
 Route::post('cliente/nome',[ClienteController::class,'pesquisarPorNome']);
 
 Route::post('cliente/cpf',[ClienteController::class,'pesquisarCpf']);
@@ -64,6 +68,8 @@ Route::post('profissional/store',[ProfissionalController::class,'store']);
 Route::get('profissional/find/{id}',[ProfissionalController::class,'pesquisarPorId']);
 
 Route::post('profissional/nome',[ProfissionalController::class,'pesquisarPorNome']);
+
+Route::delete('profissional/remover/{id}',[ProfissionalController::class, 'excluir']);
 
 Route::put('profissional/update',[ProfissionalController::class, 'update']);
 

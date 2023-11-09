@@ -52,6 +52,24 @@ class ClienteController extends Controller
         ]);
     }
 
+    public function excluir($id)
+    {
+        $cliente = cliente::find($id);
+
+        if (!isset($cliente)) {
+            return response()->json([
+                'status' => false,
+                'message' => "Serviço não encontrado"
+            ]);
+        }
+
+
+        $cliente->delete();
+        return response()->json([
+            'status' => true,
+            'message' => "Serviço excluído com sucesso"
+        ]);
+    }
     public function pesquisarPorNome(Request $request)
     {
         $clientes = Cliente::where('nome', 'like', '%' . $request->nome . '%')->get();
@@ -60,6 +78,7 @@ class ClienteController extends Controller
                 'status' => true,
                 'data' => $clientes
             ]);
+        
         } else {
             return response()->json([
                 'status' => false,
@@ -155,4 +174,5 @@ class ClienteController extends Controller
             'data' => $clientes
         ]);
     }
+
 }
