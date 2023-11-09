@@ -9,30 +9,31 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfissionalController extends Controller
 {
-    public function store(ProfissionalFormRequest $request){
+    public function store(ProfissionalFormRequest $request)
+    {
         $profissional = Profissional::create([
-           'nome'=> $request->nome,
-           'celular'=> $request->celular,
-           'email'=> $request->email,
-           'cpf'=> $request->cpf,
-           'dataNascimento'=> $request->dataNascimento,
-           'cidade'=> $request->cidade,
-           'estado'=> $request->estado,
-           'pais'=> $request->pais,
-           'rua'=> $request->rua,
-           'numero'=> $request->numero,
-           'bairro'=> $request->bairro,
-           'cep'=> $request->cep,
-           'complemento'=> $request->complemento,
-           'salario'=> $request->salario,
-           'senha'=> Hash::make($request->senha)
+            'nome' => $request->nome,
+            'celular' => $request->celular,
+            'email' => $request->email,
+            'cpf' => $request->cpf,
+            'dataNascimento' => $request->dataNascimento,
+            'cidade' => $request->cidade,
+            'estado' => $request->estado,
+            'pais' => $request->pais,
+            'rua' => $request->rua,
+            'numero' => $request->numero,
+            'bairro' => $request->bairro,
+            'cep' => $request->cep,
+            'complemento' => $request->complemento,
+            'salario' => $request->salario,
+            'senha' => Hash::make($request->senha)
         ]);
-           return response()->json([
-               "success" => true,
-               "message" =>"Profissional cadrastado com sucesso",
-               "data" => $profissional
-   
-           ],200);
+        return response()->json([
+            "success" => true,
+            "message" => "Profissional cadrastado com sucesso",
+            "data" => $profissional
+
+        ], 200);
     }
     public function pesquisarPorId($id)
     {
@@ -50,32 +51,62 @@ class ProfissionalController extends Controller
             'data' => $profissional
         ]);
     }
-        
 
-           public function pesquisarPorNome(Request $request)
-           {
-               $profissional = Profissional::where('nome', 'like', '%' . $request->nome . '%')->get();
-               if (count($profissional) > 0) {
-                   return response()->json([
-                       'status' => true,
-                       'data' => $profissional
-                   ]);
-               }
-               else{
-                   return response()->json([
-                       'status' => false,
-                       'message' => "Nenhum profissional encontrado"
-                   ]);
-               }
-           }
 
-       
-       public function retornarTodos()
-       {
-           $profissional = Profissional::all();
-           return response()->json([
-               'status' => true,
-               'data' => $profissional
-           ]);
-}
+    public function pesquisarPorNome(Request $request)
+    {
+        $profissional = Profissional::where('nome', 'like', '%' . $request->nome . '%')->get();
+        if (count($profissional) > 0) {
+            return response()->json([
+                'status' => true,
+                'data' => $profissional
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => "Nenhum profissional encontrado"
+            ]);
+        }
+    }
+
+    public function update(Request $request)
+    {
+        $profissional = Profissional::find($request->id);
+
+        if (!isset($profissional)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Profissional não encontrado'
+            ]);
+        }
+
+        if (isset($request->nome)) {
+            $profissional->nome = $request->nome;
+        }
+        if (isset($request->descricao)) {
+            $profissional->descricao = $request->descricao;
+        }
+        if (isset($request->duracao)) {
+            $profissional->duracao = $request->duracao;
+        }
+        if (isset($request->preco)) {
+            $profissional->preco = $request->preco;
+        }
+
+        $profissional->update();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Profissional atualizado.'
+        ]);
+    }
+
+    public function retornarTodos()
+    {
+        $profissional = Profissional::all();
+        return response()->json([
+            'status' => true,
+            'data' => $profissional
+        ]);
+    }
 }

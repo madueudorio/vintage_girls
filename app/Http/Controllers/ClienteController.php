@@ -115,6 +115,38 @@ class ClienteController extends Controller
             ]);
         }
     }
+
+    public function update(Request $request)
+    {
+        $cliente = cliente::find($request->id);
+
+        if (!isset($cliente)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Cliente não encontrado'
+            ]);
+        }
+
+        if (isset($request->nome)) {
+            $cliente->nome = $request->nome;
+        }
+        if (isset($request->descricao)) {
+            $cliente->descricao = $request->descricao;
+        }
+        if (isset($request->duracao)) {
+            $cliente->duracao = $request->duracao;
+        }
+        if (isset($request->preco)) {
+            $cliente->preco = $request->preco;
+        }
+
+        $cliente->update();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Cliente atualizado.'
+        ]);
+    }
     public function retornarTodos()
     {
         $clientes = Cliente::all();
