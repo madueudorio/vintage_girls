@@ -82,5 +82,22 @@ Route::post('profisional/email',[ProfissionalController::class,'pesquisarEmail']
 Route::get('profissional/all',[ProfissionalController::class, 'retornarTodos']);
 
 
+
 Route::post('Agenda/store',[AgendaController::class,'store']);
+
+Route::get('Agenda/find/{id}',[AgendaController::class,'pesquisarPorId']);
+
+Route::post('Agenda/nome',[AgendaController::class,'pesquisarPorNome']);
+
+Route::delete('Agenda/remover/{id}',[AgendaController::class, 'excluir']);
+
+Route::put('Agenda/update',[AgendaController::class, 'update']);
+
+Route::post('Agenda/cpf',[AgendaController::class,'pesquisarCpf']);
+
+Route::post('Agenda/celular',[AgendaController::class,'pesquisarCelular']);
+
+Route::post('Agenda/email',[AgendaController::class,'pesquisarEmail']);
+
+Route::get('Agenda/all',[AgendaController::class, 'retornarTodos']);
 
