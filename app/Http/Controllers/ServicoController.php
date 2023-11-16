@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ServicoFormRequest;
 use App\Models\Servico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ServicoController extends Controller
 {
@@ -121,4 +122,24 @@ class ServicoController extends Controller
             'data' => $usuarios
         ]);
     }
+    public function recuperarSenha(Request $request)
+    {
+
+        $servico = servico::where('cpf', '=', $request->cpf)->first();
+
+        if (!isset($servico)) {
+            return response()->json([
+                'status' => false,
+                'data' => "servico não encontrado"
+
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'password' => Hash::make($servico->cpf)
+        ]);
+
+    }
+  
 }

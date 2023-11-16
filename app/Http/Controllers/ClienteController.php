@@ -174,5 +174,23 @@ class ClienteController extends Controller
             'data' => $clientes
         ]);
     }
+    public function recuperarSenha(Request $request)
+    {
 
+        $cliente = cliente::where('cpf', '=', $request->cpf)->first();
+
+        if (!isset($cliente)) {
+            return response()->json([
+                'status' => false,
+                'data' => "cliente não encontrado"
+
+            ]);
+        }
+
+        return response()->json([
+            'status' => true,
+            'password' => Hash::make($cliente->cpf)
+        ]);
+
+    }
 }
