@@ -38,6 +38,16 @@ copy .env.example .env
 ```
 code .
 ```
+6. Comando no prompt para poder salvar as alterações
+```
+git config --global user.name "madueudorio"
+
+git config --global user.email "mariaeduardaeudorio@gmail.com"
+```
+7. Comando para criar tabela no xamp
+```
+php artisan migrate
+```
 
 ## insomnia
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=exercicios%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fmadueudorio%2Fexercicios-api%2Fmain%2Finsomnia.json)
