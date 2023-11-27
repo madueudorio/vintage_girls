@@ -101,3 +101,10 @@ Route::post('Agenda/email',[AgendaController::class,'pesquisarEmail']);
 
 Route::get('Agenda/all',[AgendaController::class, 'retornarTodos']);
 
+
+
+
+Route::put('Recuperar/senha/cliente',[ClienteController::class, 'recuperarSenha']);
+
+Route::put('Recuperar/senha/profissional',[ProfissionalController::class, 'recuperarSenha']);
+

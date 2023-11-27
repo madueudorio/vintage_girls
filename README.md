@@ -11,6 +11,9 @@ Certifique-se de ter os seguintes requisitos atendidos antes de começar a traba
 - Laravel Framework instalado
 - 7-Zip instalado
 - Git instalado
+- Servidor ligado
+- Xamp instalado
+- Insomnia instalado
 - Editor de código de sua preferência
 
 ## Como utilizar este repositório
@@ -45,8 +48,5 @@ Este projeto está licenciado sob a [MIT License](LICENSE), o que significa que 
 
 ## Contato
 
-Em caso de dúvidas, sugestões ou problemas, sinta-se à vontade para entrar em contato através do email: seu_email@example.com.
+Em caso de dúvidas, sugestões ou problemas, sinta-se à vontade para entrar em contato através do email: mariaeduardaeudorio@gmail.com.
 
-**Aviso**: Certifique-se de substituir "seu_usuario" no link de clonagem e "seu_email@example.com" na seção de contato pelos valores correspondentes do seu próprio usuário do GitHub e endereço de e-mail.
-
-Este é apenas um modelo básico de README.md, você pode adaptar e melhorar conforme suas necessidades específicas de projeto. Certifique-se de incluir informações importantes sobre como configurar, executar e testar os exercícios, bem como qualquer outra documentação relevante para tornar o repositório mais amigável e útil para outros desenvolvedores.
