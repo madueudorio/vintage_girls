@@ -21,6 +21,7 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 |
 */
 
+//serviço
 Route::post('servico/store',[ServicoController::class,'store']);
 
 Route::put('servico/update',[ServicoController::class, 'update']);
@@ -41,7 +42,7 @@ Route::get('servico/all', [ServicoController::class, 'retornarTodos']);
 
 
 
-
+//cliente
 Route::post('cliente/store',[ClienteController::class,'store']);
 
 Route::put('cliente/update',[ClienteController::class, 'update']);
@@ -62,7 +63,7 @@ Route::get('cliente/all',[ClienteController::class, 'retornarTodos']);
 
 
 
-
+//profissional
 Route::post('profissional/store',[ProfissionalController::class,'store']);
 
 Route::get('profissional/find/{id}',[ProfissionalController::class,'pesquisarPorId']);
@@ -82,28 +83,22 @@ Route::post('profisional/email',[ProfissionalController::class,'pesquisarEmail']
 Route::get('profissional/all',[ProfissionalController::class, 'retornarTodos']);
 
 
+//rota agenda
+Route::post('agenda/store',[AgendaController::class,'store']);
 
-Route::post('Agenda/store',[AgendaController::class,'store']);
+Route::get('agenda/find/{id}',[AgendaController::class,'pesquisarPorId']);
 
-Route::get('Agenda/find/{id}',[AgendaController::class,'pesquisarPorId']);
+Route::get('agenda/editar',[AgendaController::class,'editar']);
 
-Route::post('Agenda/nome',[AgendaController::class,'pesquisarPorNome']);
+Route::get('agenda/excluir',[AgendaController::class,'excluir']);
 
-Route::delete('Agenda/remover/{id}',[AgendaController::class, 'excluir']);
-
-Route::put('Agenda/update',[AgendaController::class, 'update']);
-
-Route::post('Agenda/cpf',[AgendaController::class,'pesquisarCpf']);
-
-Route::post('Agenda/celular',[AgendaController::class,'pesquisarCelular']);
-
-Route::post('Agenda/email',[AgendaController::class,'pesquisarEmail']);
-
-Route::get('Agenda/all',[AgendaController::class, 'retornarTodos']);
+Route::get('agenda/all',[AgendaController::class,'retornarTodos']);
 
 
 
 
+
+//recuperar senha
 Route::put('Recuperar/senha/cliente',[ClienteController::class, 'recuperarSenha']);
 
 Route::put('Recuperar/senha/profissional',[ProfissionalController::class, 'recuperarSenha']);
