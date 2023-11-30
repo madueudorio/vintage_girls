@@ -99,7 +99,7 @@ Route::get('agenda/all',[AgendaController::class,'retornarTodos']);
 
 
 //recuperar senha
-Route::put('Recuperar/senha/cliente',[ClienteController::class, 'recuperarSenha']);
+Route::put('recuperar/senha/cliente',[ClienteController::class, 'recuperarSenha']);
 
-Route::put('Recuperar/senha/profissional',[ProfissionalController::class, 'recuperarSenha']);
+Route::put('recuperar/senha/profissional',[ProfissionalController::class, 'recuperarSenha']);
 

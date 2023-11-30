@@ -96,18 +96,64 @@ class ProfissionalController extends Controller
                 'message' => 'Profissional não encontrado'
             ]);
         }
-
-        if (isset($request->nome)) {
+        if (isset($request->nome)){
             $profissional->nome = $request->nome;
         }
-        if (isset($request->descricao)) {
-            $profissional->descricao = $request->descricao;
+       
+        if (isset($request->celular)){                                                
+            $profissional->celular = $request->celular;
         }
-        if (isset($request->duracao)) {
-            $profissional->duracao = $request->duracao;
+
+        if (isset($request->email)){
+            $profissional->email = $request->email;
         }
-        if (isset($request->preco)) {
-            $profissional->preco = $request->preco;
+
+        if (isset($request->cpf)){
+            $profissional->cpf = $request->cpf;
+        }
+
+        if (isset($request->dataNascimento)){
+            $profissional->dataNascimento = $request->dataNascimento;
+        }
+
+        if (isset($request->cidade)){
+            $profissional->cidade = $request->cidade;
+        }
+
+        if (isset($request->estado)){
+            $profissional->estado = $request->estado;
+        }
+
+        if (isset($request->pais)){
+            $profissional->pais = $request->pais;
+        }
+
+        if (isset($request->rua)){
+            $profissional->rua = $request->rua;
+        }
+
+        if (isset($request->numero)){
+            $profissional->numero = $request->numero;
+        }
+
+        if (isset($request->bairro)){
+            $profissional->bairro = $request->bairro;
+        }
+
+        if (isset($request->cep)){
+            $profissional->cep = $request->cep;
+        }
+
+        if (isset($request->complemento)){
+            $profissional->complemento = $request->complemento;
+        }
+
+        if (isset($request->senha)){
+            $profissional->senha = $request->senha;
+        }
+
+        if (isset($request->salario)){
+            $profissional->salario = $request->salario;
         }
 
         $profissional->update();
