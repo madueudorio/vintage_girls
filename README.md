@@ -34,19 +34,23 @@ composer update
 ```
 copy .env.example .env
 ```
-5. Acessar o Visual Studio Code
-```
-code .
-```
-6. Comando no prompt para poder salvar as alterações
+5. Comando no prompt para poder salvar as alterações
 ```
 git config --global user.name "madueudorio"
 
 git config --global user.email "mariaeduardaeudorio@gmail.com"
 ```
-7. Comando para criar tabela no xamp
+6. Comando para criar tabela no xamp
 ```
 php artisan migrate
+```
+7. Comando para ligar o servidor
+```
+php artisan serve
+```
+8. Acessar o Visual Studio Code
+```
+code .
 ```
 
 ## insomnia
